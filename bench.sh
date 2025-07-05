@@ -11,13 +11,13 @@ mkdir -p $TRACE_DIR
 
 python3 /home/baejh724/vllm/examples/offline_inference/profiling.py \
   --model /home/baejh724/my_llama1layer \
-  --tokenizer /home/baejh724my_llama1layer \
-  --input-len $INPUT_LEN \
-  --output-len $OUTPUT_LEN \
+  --tokenizer /home/baejh724/my_llama1layer \
+  --prompt-len $INPUT_LEN \
+  --generation-config "{\"max_new_tokens\": ${OUTPUT_LEN}}" \
   --batch-size $BATCH_SIZE \
   --enforce-eager \
   --skip-tokenizer-init \
-  --profile-result-dir ${TRACE_DIR} \
-  --tensor-parallel-size 1\
-  --profile > ${TRACE_DIR}/B${BATCH_SIZE}_I${INPUT_LEN}_O${OUTPUT_LEN}
+  --prompt-len 'tpu' \
+  --tensor-parallel-size $TP\
+  --json JSON > ${TRACE_DIR}/B${BATCH_SIZE}_I${INPUT_LEN}_O${OUTPUT_LEN}.json
 
