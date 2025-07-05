@@ -18,4 +18,4 @@ python3 /home/baejh724/vllm/examples/offline_inference/profiling_tpu/profiling.p
     --enforce-eager \
     --profile-result-dir ${TRACE_DIR} \
     --tensor-parallel-size ${TP} \
-    --json JSON > ${TRACE_DIR}/B${BATCH_SIZE}_I${INPUT_LEN}_O${OUTPUT_LEN}.json
+    # --json JSON > ${TRACE_DIR}/B${BATCH_SIZE}_I${INPUT_LEN}_O${OUTPUT_LEN}.json
