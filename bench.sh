@@ -9,15 +9,13 @@ export VLLM_TPU_PROFILE_DELAY_MS=1000
 
 mkdir -p $TRACE_DIR
 
-python3 /home/baejh724/vllm/examples/offline_inference/profiling.py \
+python3 /home/baejh724/vllm/examples/offline_inference/profiling_tpu/profiling.py \
   --model /home/baejh724/my_llama1layer \
   --tokenizer /home/baejh724/my_llama1layer \
-  --prompt-len $INPUT_LEN \
-  --generation-config "{\"max_new_tokens\": ${OUTPUT_LEN}}" \
-  --batch-size $BATCH_SIZE \
-  --enforce-eager \
-  --skip-tokenizer-init \
-  --device 'tpu' \
-  --tensor-parallel-size $TP\
-  --json JSON > ${TRACE_DIR}/B${BATCH_SIZE}_I${INPUT_LEN}_O${OUTPUT_LEN}.json
-
+    --input-len ${INPUT_LEN} \
+    --output-len ${OUTPUT_LEN} \
+    --batch-size ${BATCH_SIZE} \
+    --enforce-eager \
+    --profile-result-dir ${TRACE_DIR} \
+    --tensor-parallel-size ${TP} \
+    --json JSON > ${TRACE_DIR}/B${BATCH_SIZE}_I${INPUT_LEN}_O${OUTPUT_LEN}.json
