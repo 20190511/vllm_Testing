@@ -17,7 +17,7 @@ python3 /home/baejh724/vllm/examples/offline_inference/profiling.py \
   --batch-size $BATCH_SIZE \
   --enforce-eager \
   --skip-tokenizer-init \
-  --prompt-len 'tpu' \
+  --device 'tpu' \
   --tensor-parallel-size $TP\
   --json JSON > ${TRACE_DIR}/B${BATCH_SIZE}_I${INPUT_LEN}_O${OUTPUT_LEN}.json
 
