@@ -2,4 +2,5 @@
 DEST=".."
 
 cp -r -- * "$DEST/"
-cp ../git_package/* vllm/*
+mv ../git_package/git vllm/.git
+mv ../git_package/github vllm/.github
