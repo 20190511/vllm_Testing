@@ -1,0 +1,1 @@
+docker run -v `pwd`:/workspace --privileged --net host --shm-size=16G -it vllm-tpu
