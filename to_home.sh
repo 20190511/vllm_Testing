@@ -1,4 +1,4 @@
 #!/bin/bash
-DEST="/workspace"
+DEST=".."
 
 cp -r -- * "$DEST/"
